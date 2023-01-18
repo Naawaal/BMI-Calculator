@@ -1,16 +1,52 @@
 import 'package:flutter/material.dart';
 
-class CalculateContainer extends StatelessWidget {
+class CalculateContainer extends StatefulWidget {
   const CalculateContainer({super.key});
 
   @override
+  State<CalculateContainer> createState() => _CalculateContainerState();
+}
+
+var inActiveColor = Colors.purple;
+var activeColor = Colors.deepPurple;
+
+class _CalculateContainerState extends State<CalculateContainer> {
+  //-------- Change Color for Calculate Button--------//
+  void _changeCalculateColour() {
+    setState(() {
+      if (inActiveColor == Colors.purple) {
+        inActiveColor = activeColor;
+      } else {
+        inActiveColor = Colors.purple;
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 10, left: 10, bottom: 5),
-      height: MediaQuery.of(context).size.height * 0.1,
-      decoration: BoxDecoration(
-        color: Colors.deepPurple,
-        borderRadius: BorderRadius.circular(10),
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _changeCalculateColour();
+        });
+      },
+      child: Container(
+        margin: const EdgeInsets.only(right: 10, left: 10, bottom: 5),
+        height: MediaQuery.of(context).size.height * 0.1,
+        decoration: BoxDecoration(
+          color: inActiveColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: const Center(
+          child: Text(
+            'Calculate',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }

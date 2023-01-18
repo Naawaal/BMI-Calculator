@@ -1,5 +1,10 @@
-import 'package:bmi_calculator/components/top_container.dart';
 import 'package:flutter/cupertino.dart';
+
+//-------- Declaring Enum for Top Container--------//
+enum Gender {
+  male,
+  female,
+}
 
 class TopContainer extends StatefulWidget {
   final Widget firstContainerchild;
@@ -14,16 +19,17 @@ class TopContainer extends StatefulWidget {
   State<TopContainer> createState() => _TopContainerState();
 }
 
+//-------- Declaring Active & InActive colors for Top Container --------//
 const activeColor = Color(0xFF1D1E33);
 const inActiveColor = Color(0xFF111328);
 
 class _TopContainerState extends State<TopContainer> {
-  //-------- Inactive Color for male and female--------//
+//-------- Declaring again Active & InActive colors for Top Container --------//
   Color maleCardColor = inActiveColor;
   Color femaleCardColor = inActiveColor;
-
-  void _updateColorOnClick(int gender) {
-    if (gender == 1) {
+//-------- Change Color when Tap for Top Container--------//
+  void _updateColorOnClick(Gender selectGender) {
+    if (selectGender == Gender.male) {
       if (maleCardColor == inActiveColor) {
         maleCardColor = activeColor;
         femaleCardColor = inActiveColor;
@@ -31,7 +37,7 @@ class _TopContainerState extends State<TopContainer> {
         maleCardColor = inActiveColor;
       }
     }
-    if (gender == 2) {
+    if (selectGender == Gender.female) {
       if (femaleCardColor == inActiveColor) {
         femaleCardColor = activeColor;
         maleCardColor = inActiveColor;
@@ -50,7 +56,7 @@ class _TopContainerState extends State<TopContainer> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                _updateColorOnClick(1);
+                _updateColorOnClick(Gender.male);
               });
             },
             child: Container(
@@ -68,7 +74,7 @@ class _TopContainerState extends State<TopContainer> {
           child: GestureDetector(
             onTap: () {
               setState(() {
-                _updateColorOnClick(2);
+                _updateColorOnClick(Gender.female);
               });
             },
             child: Container(
