@@ -21,17 +21,50 @@ class _HomepageScreenState extends State<HomepageScreen> {
         title: const Text('BMI Calculator'),
       ),
       body: Column(
-        children: const [
+        children: [
+          //------Top Container Widget-------//
           TopContainer(
+            color: const Color(0xFF1D1E33),
+            firstContainerchild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/png/male.png',
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(height: 10),
+                const Text(
+                  'Male',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ],
+            ),
+            secondContainerchild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/png/female.png',
+                  height: 50,
+                  width: 50,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(height: 10),
+                const Text('Female',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
+              ],
+            ),
+          ),
+          //------Middle Container Widget-------//
+          const MiddleContainer(
             color: Color(0xFF1D1E33),
           ),
-          MiddleContainer(
+          //------Buttom Container Widget-------//
+          const ButtomContainer(
             color: Color(0xFF1D1E33),
           ),
-          ButtomContainer(
-            color: Color(0xFF1D1E33),
-          ),
-          CalculateContainer(),
+          const CalculateContainer(),
         ],
       ),
     );
