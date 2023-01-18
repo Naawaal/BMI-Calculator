@@ -3,8 +3,12 @@ import 'package:flutter/cupertino.dart';
 enum WA { weight, age }
 
 class ButtomContainer extends StatefulWidget {
+  final Widget firstContainerchild;
+  final Widget secondContainerchild;
   const ButtomContainer({
     super.key,
+    required this.firstContainerchild,
+    required this.secondContainerchild,
   });
 
   @override
@@ -34,6 +38,7 @@ class _ButtomContainerState extends State<ButtomContainer> {
                   : const Color(0xFF111328),
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
+            child: widget.firstContainerchild,
           ),
         )),
         Expanded(
@@ -51,6 +56,7 @@ class _ButtomContainerState extends State<ButtomContainer> {
                   : const Color(0xFF111328),
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
+            child: widget.secondContainerchild,
           ),
         )),
       ],

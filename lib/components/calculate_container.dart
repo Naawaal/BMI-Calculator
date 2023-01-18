@@ -26,6 +26,7 @@ class _CalculateContainerState extends State<CalculateContainer> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Navigator.pushNamed(context, '/result');
         setState(() {
           _changeCalculateColour();
         });

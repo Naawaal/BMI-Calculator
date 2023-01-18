@@ -14,6 +14,8 @@ class HomepageScreen extends StatefulWidget {
 
 class _HomepageScreenState extends State<HomepageScreen> {
   int height = 180;
+  int weight = 40;
+  int age = 10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,7 +97,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                   ),
                   child: Slider(
                     value: height.toDouble(),
-                    min: 120,
+                    min: 80,
                     max: 220,
                     inactiveColor: const Color(0xFF8D8E98),
                     activeColor: Colors.deepPurple,
@@ -110,7 +112,94 @@ class _HomepageScreenState extends State<HomepageScreen> {
             ),
           ),
           //------Buttom Container Widget-------//
-          const ButtomContainer(),
+          ButtomContainer(
+            firstContainerchild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Weight',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(height: 10),
+                Text('$weight',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          weight++;
+                        });
+                      },
+                      backgroundColor: Colors.deepPurple,
+                      child: const Icon(Icons.add),
+                    ),
+                    const SizedBox(width: 10),
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          weight--;
+                        });
+                      },
+                      backgroundColor: Colors.deepPurple,
+                      child: const Icon(Icons.remove),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            secondContainerchild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Age',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(height: 10),
+                Text('$age',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    )),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          age++;
+                        });
+                      },
+                      backgroundColor: Colors.deepPurple,
+                      child: const Icon(Icons.add),
+                    ),
+                    const SizedBox(width: 10),
+                    FloatingActionButton(
+                      onPressed: () {
+                        setState(() {
+                          age--;
+                        });
+                      },
+                      backgroundColor: Colors.deepPurple,
+                      child: const Icon(Icons.remove),
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
           //------Calculate Container Widget-------//
           const CalculateContainer(),
         ],
