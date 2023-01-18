@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/components/buttom_container.dart';
 import 'package:bmi_calculator/components/calculate_container.dart';
 import 'package:bmi_calculator/components/top_Container.dart';
+import 'package:bmi_calculator/logics/bmi_calculation.dart';
 import 'package:flutter/material.dart';
 
 import '../components/middle_container.dart';
@@ -201,7 +202,14 @@ class _HomepageScreenState extends State<HomepageScreen> {
             ),
           ),
           //------Calculate Container Widget-------//
-          const CalculateContainer(),
+          CalculateContainer(
+            onTap: () {
+              BMICalculation calc = BMICalculation(
+                height: height,
+                weight: weight,
+              );
+            },
+          ),
         ],
       ),
     );

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CalculateContainer extends StatefulWidget {
-  const CalculateContainer({super.key});
+  final Function onTap;
+
+  const CalculateContainer({
+    super.key,
+    required this.onTap,
+  });
 
   @override
   State<CalculateContainer> createState() => _CalculateContainerState();
@@ -26,7 +31,11 @@ class _CalculateContainerState extends State<CalculateContainer> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/result');
+        widget.onTap();
+        Navigator.pushNamed(
+          context,
+          '/result',
+        );
         setState(() {
           _changeCalculateColour();
         });
