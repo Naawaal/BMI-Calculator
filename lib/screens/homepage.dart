@@ -58,9 +58,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
           //------Middle Container Widget-------//
           const MiddleContainer(),
           //------Buttom Container Widget-------//
-          const ButtomContainer(
-            color: Color(0xFF1D1E33),
-          ),
+          const ButtomContainer(),
           //------Calculate Container Widget-------//
           const CalculateContainer(),
         ],
