@@ -24,7 +24,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
         children: [
           //------Top Container Widget-------//
           TopContainer(
-            color: const Color(0xFF1D1E33),
             firstContainerchild: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -64,6 +63,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
           const ButtomContainer(
             color: Color(0xFF1D1E33),
           ),
+          //------Calculate Container Widget-------//
           const CalculateContainer(),
         ],
       ),
